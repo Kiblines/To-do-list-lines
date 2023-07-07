@@ -11,6 +11,12 @@ const ContainerList = styled.div`
 `;
 
 export default function TodoListPage() {
+  const [tasks, setTasks] = useState([]);
+
+  const createTask = (task) => {
+    setTasks([...tasks, task]);
+  };
+
   const TestList = [
     { id: 0, name: "Faire du code" },
     { id: 1, name: "Faire du code pour de vrai" },
@@ -23,7 +29,6 @@ export default function TodoListPage() {
     <ContainerList>
       <h1>Liste de tâches :</h1>
       <ul>
-        <h1>stream en pause tuteur afk</h1>
         {TestList.map((item) => (
           <li key={item.id}>{item.name}</li>
         ))}
