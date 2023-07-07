@@ -20,7 +20,7 @@ export default function TodoListPage() {
   };
 
   const deleteTask = (totoTata) => {
-    setTasks(tasks.filter((task) => task.id !== toto));
+    setTasks(tasks.filter((task) => task.id !== totoTata));
   };
 
   const editTask = (task) => {
