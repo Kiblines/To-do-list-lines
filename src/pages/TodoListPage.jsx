@@ -12,10 +12,16 @@ const ContainerList = styled.div`
 
 export default function TodoListPage() {
   const [tasks, setTasks] = useState([]);
+  const completedTasks = tasks.filter((task) => task.isCompleted);
+  const notCompletedTasks = tasks.filter((task) => !task.isCompleted);
 
   const createTask = (task) => {
     setTasks([...tasks, task]);
   };
+
+  const deleteTask = (task) => {
+    setTasks(tasks.map(t)=>)
+  }
 
   const TestList = [
     { id: 0, name: "Faire du code" },
