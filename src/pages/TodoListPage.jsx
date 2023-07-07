@@ -19,9 +19,21 @@ export default function TodoListPage() {
     setTasks([...tasks, task]);
   };
 
-  const deleteTask = (task) => {
-    setTasks(tasks.map(t)=>)
-  }
+  const deleteTask = (totoTata) => {
+    setTasks(tasks.filter((task) => task.id !== toto));
+  };
+
+  const editTask = (task) => {
+    setTasks(tasks.map((t) => (t.id === tasks.id ? task : t)));
+  };
+
+  const completeTask = (task) => {
+    setTasks(
+      task.map((t) =>
+        t.id === task.id ? { ...t, isCompleted: !t.isCompleted } : t
+      )
+    );
+  };
 
   const TestList = [
     { id: 0, name: "Faire du code" },
