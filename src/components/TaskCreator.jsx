@@ -16,10 +16,6 @@ export default function TaskCreator(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-  };
-
-  const handleChange = (event) => {
-    setTaskName(event.target.value);
     if (taskName.trim() !== "") {
       const newTask = {
         id: getNewId(),
@@ -29,6 +25,10 @@ export default function TaskCreator(props) {
       props.onCreateTask(newTask);
       setTaskName("");
     }
+  };
+
+  const handleChange = (event) => {
+    setTaskName(event.target.value);
   };
 
   return (
