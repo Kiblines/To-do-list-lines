@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import useNewId from "../hooks/useNewId";
 import styled from "styled-components";
 
@@ -12,10 +12,35 @@ const ContainerList = styled.div`
 
 export default function TaskCreator(props) {
   const getNewId = useNewId();
+  const [taskName, setTaskName] = useState("");
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  };
+
+  const handleChange = (event) => {
+    setTaskName(event.target.value);
+    if (taskName.trim() !== "") {
+      const newTask = {
+        id: getNewId(),
+        name: taskName,
+        isCompleted: false,
+      };
+      props.onCreateTask(newTask);
+      setTaskName("");
+    }
+  };
 
   return (
-    <div>
-      <h2>Quentin est un tyran</h2>
-    </div>
+    <ContainerList>
+      <form onSubmit={handleSubmit} />
+      <input
+        type="text"
+        value={taskName}
+        onChange={handleChange}
+        placeholder="Add new task"
+      />
+      <button />
+    </ContainerList>
   );
 }
