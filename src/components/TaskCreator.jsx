@@ -40,7 +40,7 @@ export default function TaskCreator(props) {
         onChange={handleChange}
         placeholder="Add new task"
       />
-      <button />
+      <button type="submit">Add</button>
     </ContainerList>
   );
 }
