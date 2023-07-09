@@ -19,8 +19,8 @@ export default function TodoListPage() {
     setTasks([...tasks, task]);
   };
 
-  const deleteTask = (totoTata) => {
-    setTasks(tasks.filter((task) => task.id !== totoTata));
+  const deleteTask = (task) => {
+    setTasks(tasks.filter((t) => t.id !== task.id));
   };
 
   const editTask = (task) => {
