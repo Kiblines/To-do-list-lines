@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import useNewId from "../hooks/useNewId";
 import styled from "styled-components";
 
@@ -6,8 +6,12 @@ const ContainerList = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 8;
+  margin: 8px;
   background-color: blue;
+`;
+
+const TaskCreatorInput = styled.input`
+  margin-right: 8px;
 `;
 
 export default function TaskCreator(props) {
@@ -33,14 +37,15 @@ export default function TaskCreator(props) {
 
   return (
     <ContainerList>
-      <form onSubmit={handleSubmit} />
-      <input
-        type="text"
-        value={taskName}
-        onChange={handleChange}
-        placeholder="Add new task"
-      />
-      <button type="submit">Add</button>
+      <form onSubmit={handleSubmit}>
+        <TaskCreatorInput
+          type="text"
+          value={taskName}
+          onChange={handleChange}
+          placeholder="Add new task"
+        />
+        <button type="submit">Add</button>
+      </form>
     </ContainerList>
   );
 }

@@ -15,14 +15,22 @@ const TaskItem = (props) => {
     props.onDeleteTask(props.task);
   };
 
-  const handleEdit = () => {};
-};
+  const handleEdit = () => {
+    const newTaskName = prompt("Nouveau nom de la tâche");
 
-export default function TaskItem() {
+    if (newTaskName && newTaskName.trim() !== "") {
+      const updatedTask = { ...props.task, name: newTaskName };
+      props.onEditTask(updatedTask);
+    }
+  };
+
   return (
     <ListItem>
       <TaskName>{props.task.name}</TaskName>
-      <button onClick></button>
+      <button onClick={handleDelete}>Delete</button>
+      <button onClick={handleEdit}>Modifier</button>
     </ListItem>
   );
-}
+};
+
+export default TaskItem;
