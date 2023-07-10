@@ -27,6 +27,7 @@ const CompletedList = styled.ul`
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  gap: 8px;
   margin-bottom: 10px; /* Ajoute une marge en bas pour espacer les éléments */
 `;
 const NotCompletedList = styled.ul`

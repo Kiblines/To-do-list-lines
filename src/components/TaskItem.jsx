@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { useState } from "react";
 
+const TaskCard = styled.div``;
+
 const ListItem = styled.li`
   display: flex;
   align-items: center;
@@ -45,9 +47,11 @@ const CompleteButton = styled.button`
   border-radius: 4px;
   cursor: pointer;
   color: #fff;
-  font-size: 16px;
-  padding: 8px 16px;
-  margin-left: 8px;
+  font-size: 14px;
+  height: 30px;
+  padding: 5px 10px;
+
+  margin: 8px;
   transition: background-color 0.3s ease;
 
   &:hover {
@@ -102,15 +106,17 @@ const TaskItem = (props) => {
         </>
       ) : (
         <>
-          <TaskName>{props.task.name}</TaskName>
-          <CompleteButton
-            completed={props.task.isCompleted}
-            onClick={() => props.onCompleteTask(props.task)}
-          >
-            {props.task.isCompleted ? <CompleteIcon>✓</CompleteIcon> : ""}
-          </CompleteButton>
-          <DeleteButton onClick={handleDelete}>Delete</DeleteButton>
-          <EditButton onClick={handleEdit}>Edit</EditButton>
+          <TaskCard>
+            <TaskName>{props.task.name}</TaskName>
+            <CompleteButton
+              completed={props.task.isCompleted}
+              onClick={() => props.onCompleteTask(props.task)}
+            >
+              {props.task.isCompleted ? <CompleteIcon>✓</CompleteIcon> : ""}
+            </CompleteButton>
+            <DeleteButton onClick={handleDelete}>Delete</DeleteButton>
+            <EditButton onClick={handleEdit}>Edit</EditButton>
+          </TaskCard>
         </>
       )}
     </ListItem>
