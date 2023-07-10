@@ -1,16 +1,5 @@
 {
-    "tasks": [
-      {
-        "id": 1,
-        "name": "Faire du code",
-        "isCompleted": false
-      },
-      {
-        "id": 2,
-        "name": "Faire du clean code",
-        "isCompleted": false
-      },
-      ...
-    ]
-  }
-  
+  "posts": [{ "id": 1, "title": "json-server", "author": "typicode" }],
+  "comments": [{ "id": 1, "body": "some comment", "postId": 1 }],
+  "profile": { "name": "typicode" }
+}
