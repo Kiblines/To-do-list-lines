@@ -1,0 +1,16 @@
+{
+    "tasks": [
+      {
+        "id": 1,
+        "name": "Faire du code",
+        "isCompleted": false
+      },
+      {
+        "id": 2,
+        "name": "Faire du clean code",
+        "isCompleted": false
+      },
+      ...
+    ]
+  }
+  
