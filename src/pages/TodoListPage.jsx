@@ -5,9 +5,34 @@ import { useState } from "react";
 
 const ContainerList = styled.div`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  font-family: Arial, sans-serif;
+`;
+const Title = styled.h1`
+  margin-bottom: 30px;
+  font-size: 4vh;
+`;
 
-  background-color: blue;
+const TaskList = styled.ul`
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  margin: 8px;
+  padding: 8px;
+`;
+const CompletedList = styled.ul`
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-bottom: 10px; /* Ajoute une marge en bas pour espacer les éléments */
+`;
+const NotCompletedList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Aligne les éléments au début de la liste */
 `;
 
 export default function TodoListPage() {
@@ -45,10 +70,13 @@ export default function TodoListPage() {
 
   return (
     <ContainerList>
-      <h1>Task List</h1>
+      <Title>Task List</Title>
       <TaskCreator onCreateTask={createTask} />
-      <ul>
-        {tasks.map((task) => (
+
+      {/* Liste des tâches non complétées */}
+      <Title>Not Completed</Title>
+      <NotCompletedList>
+        {notCompletedTasks.map((task) => (
           <TaskItem
             key={task.id}
             task={task}
@@ -57,7 +85,21 @@ export default function TodoListPage() {
             onCompleteTask={completeTask}
           />
         ))}
-      </ul>
+      </NotCompletedList>
+
+      {/* Liste des tâches complétées */}
+      <Title>Completed</Title>
+      <CompletedList>
+        {completedTasks.map((task) => (
+          <TaskItem
+            key={task.id}
+            task={task}
+            onDeleteTask={deleteTask}
+            onEditTask={editTask}
+            onCompleteTask={completeTask}
+          />
+        ))}
+      </CompletedList>
     </ContainerList>
   );
 }
@@ -65,3 +107,9 @@ export default function TodoListPage() {
 //    - Ajouter une task
 //- Ajout d'un bouton pour supprimer une task
 //- Ajout d'un bouton pour modifier une task: le bouton remplace le texte de la task par un champ d'input pré rempli
+
+// faire en sorte qu'on puisse pas mettre deux fois le meme nom de tâche
+// ajouter entrée pour valider
+// checkbox pour les completed task
+// un peu de CSS clean
+// call une api json serv
