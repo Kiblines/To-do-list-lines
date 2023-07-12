@@ -1,0 +1,13 @@
+{
+  "posts": [
+    {
+      "title": "Mon premier post",
+      "content": "Ceci est le contenu de mon premier post.",
+      "id": 1
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "Nouveau nom"
+  }
+}

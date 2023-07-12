@@ -6,12 +6,28 @@ const ContainerList = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 8px;
-  background-color: blue;
+  margin-bottom: 20px;
 `;
 
 const TaskCreatorInput = styled.input`
-  margin-right: 8px;
+  width: 300px;
+  height: 30px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+  font-size: 14px;
+`;
+
+const BtnCreator = styled.button`
+  height: 30px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #4caf50;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
 `;
 
 export default function TaskCreator(props) {
@@ -44,7 +60,7 @@ export default function TaskCreator(props) {
           onChange={handleChange}
           placeholder="Add new task"
         />
-        <button type="submit">Add</button>
+        <BtnCreator type="submit">Add</BtnCreator>
       </form>
     </ContainerList>
   );
