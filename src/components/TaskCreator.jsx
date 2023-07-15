@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import useNewId from "../hooks/useNewId";
 import styled from "styled-components";
+import { createTask } from "../api/api";
 
 const ContainerList = styled.div`
   display: flex;
@@ -34,7 +35,7 @@ export default function TaskCreator(props) {
   const getNewId = useNewId();
   const [taskName, setTaskName] = useState("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     if (taskName.trim() !== "") {
       const newTask = {
@@ -42,8 +43,13 @@ export default function TaskCreator(props) {
         name: taskName,
         isCompleted: false,
       };
-      props.onCreateTask(newTask);
-      setTaskName("");
+      try {
+        const createdTask = await createTask(newTask);
+        props.onCreateTAsk(createdTask);
+        setTaskName("");
+      } catch (error) {
+        console.error("Erreur lors de la création de la tâche", error);
+      }
     }
   };
 
