@@ -1,13 +1,36 @@
 {
-  "posts": [
+  "tasks": [
     {
-      "title": "Mon premier post",
-      "content": "Ceci est le contenu de mon premier post.",
-      "id": 1
+      "id": 1,
+      "name": "dazda",
+      "isCompleted": false
+    },
+    {
+      "id": 2,
+      "name": "dazdaz",
+      "isCompleted": false
+    },
+    {
+      "id": 3,
+      "name": "dazdazdazdzada",
+      "isCompleted": false
     }
   ],
-  "comments": [],
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
   "profile": {
-    "name": "Nouveau nom"
+    "name": "typicode"
   }
 }
