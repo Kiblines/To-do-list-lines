@@ -26,3 +26,16 @@ export const createTask = async (task) => {
     }
   }
 };
+
+export const getTasks = async () =>
+  await axios({
+    method: "get",
+    url: `${API_BASE_URL}/tasks`,
+  });
+
+export const updateTasks = async (id, task) =>
+  await axios({
+    method: "put",
+    url: `${API_BASE_URL}/tasks/${id}`,
+    data: task,
+  });
