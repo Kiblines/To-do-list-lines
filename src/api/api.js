@@ -39,3 +39,16 @@ export const updateTasks = async (id, task) =>
     url: `${API_BASE_URL}/tasks/${id}`,
     data: task,
   });
+
+// export const createTask2 = async (task) =>
+//   await axios({
+//     method: "post",
+//     url: `${API_BASE_URL}/tasks/`,
+//     data: task,
+//   });
+
+export const deleteTask = async (id) =>
+  await axios({
+    method: "delete",
+    url: `${API_BASE_URL}/tasks/${id}`,
+  });

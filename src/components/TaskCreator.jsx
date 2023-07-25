@@ -45,7 +45,7 @@ export default function TaskCreator(props) {
       };
       try {
         const createdTask = await createTask(newTask);
-        props.onCreateTAsk(createdTask);
+        props.onCreateTask(createdTask);
         setTaskName("");
       } catch (error) {
         console.error("Erreur lors de la création de la tâche", error);

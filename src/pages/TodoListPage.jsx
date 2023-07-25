@@ -2,7 +2,7 @@ import styled from "styled-components";
 import TaskItem from "../components/TaskItem";
 import TaskCreator from "../components/TaskCreator";
 import { useEffect, useState } from "react";
-import { getTasks, updateTasks } from "../api/api";
+import { deleteTask, getTasks, updateTasks } from "../api/api";
 
 const ContainerList = styled.div`
   display: flex;
@@ -46,7 +46,8 @@ export default function TodoListPage() {
     setTasks([...tasks, task]);
   };
 
-  const deleteTask = (task) => {
+  const onDeleteTask = (task) => {
+    deleteTask(task.id);
     setTasks(tasks.filter((t) => t.id !== task.id));
   };
 
@@ -94,7 +95,7 @@ export default function TodoListPage() {
           <TaskItem
             key={task.id}
             task={task}
-            onDeleteTask={deleteTask}
+            onDeleteTask={onDeleteTask}
             onEditTask={editTask}
             onCompleteTask={completeTask}
           />
