@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import TaskItem from "../components/TaskItem";
 import TaskCreator from "../components/TaskCreator";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { getTasks, updateTasks } from "../api/api";
 
 const ContainerList = styled.div`
   display: flex;
@@ -50,6 +51,7 @@ export default function TodoListPage() {
   };
 
   const editTask = (task) => {
+    updateTasks(task.id, task);
     setTasks(tasks.map((t) => (t.id === task.id ? task : t)));
   };
 
@@ -60,6 +62,17 @@ export default function TodoListPage() {
       )
     );
   };
+
+  useEffect(() => {
+    getTasks()
+      .then((response) => {
+        setTasks(response.data);
+        console.log(tasks);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
 
   // const TestList = [
   //   { id: 0, name: "Faire du code" },
